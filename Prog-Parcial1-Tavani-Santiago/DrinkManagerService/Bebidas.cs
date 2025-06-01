@@ -20,5 +20,8 @@ namespace DrinkManagerService
             Codigo = ContCod;
             ContCod++;
         }
+
+        //CORRECCION: FALTA EL METODO ABSTRACTO PARA CALCULAR PRECIO
+        //CORRECCION: FALTA EL METODO VIRTUAL PARA OBTENER DESCRIPCION
     }
 }

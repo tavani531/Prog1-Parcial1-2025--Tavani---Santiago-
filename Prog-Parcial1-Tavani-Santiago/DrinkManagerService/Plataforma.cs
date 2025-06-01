@@ -2,8 +2,11 @@
 {
     public class Plataforma
     {
+        //CORRECCIONES: NO INICIALIZAMOS ASI LAS LISTAS
         private List<Ventas> ListasVentas { get; set; } = new();
         private List<Bebidas> ListasBebidas { get; set; } = new();
+
+        //MAL RESUELVO, DEBE USARSE POLIMORFISMO PARA ESTO
         public double CalcularPrecioFinal(Bebidas bebida)
         { 
             double precioFinal = bebida.PrecioBase;
@@ -46,6 +49,8 @@
             }
             return precioFinal;
         }
+
+        //MAL RESUELVO, DEBE USARSE POLIMORFISMO PARA ESTO
         public string Descripcion(Bebidas bebida)
         {
             string descrpcion;
@@ -67,6 +72,8 @@
             }
             return descrpcion;
         }
+
+        //MAL IMPLEMENTADO. SE REQUIERE POLIMORFISMO
         public bool CargarBebida(Bebidas bebida)
         {
             if (bebida == null)
@@ -103,6 +110,7 @@
             return true;
         }
         
+        //EL CODIGO NO DEBE INICIALIZARSE ASI
         int codRegistroVenta = 1;
         public string RegistrarVentas(int codProducto, int cantComprada)
         {
@@ -130,6 +138,8 @@
             codRegistroVenta++;
             return "Venta realizada correctamente.";
         }
+
+        //PUEDE MEJORAR CON LINQ Y EXPRESIONES LAMBDAS
         public List<string> ListarDescripcionesProductos()
         {
             List<string> descripciones = new List<string>();
@@ -142,6 +152,7 @@
         public Bebidas ProductoMasEconomico(List<int> codigos)
         {
             Bebidas productoMasBarato = null;
+            //CORRECCION: NO SE PUEDE UTILIZAR ASI.PUEDE SER QUE TODOS SALGAN POR ENCIMA DE ESTE VALOR
             double precioMinimo = 1000000000;
 
             foreach (int codigo in codigos)
@@ -167,6 +178,7 @@
             {
                 return coincidencias;
             }
+            //VARIABLE INNECESARIA
             string valorBusqueda = valor.ToLower();
 
             foreach (var bebida in ListasBebidas)
